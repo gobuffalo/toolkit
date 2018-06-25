@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Edit Tool</h1>
+</div>
+
+<%= form_for(tool, {action: toolPath({ tool_id: tool.ID }), method: "PUT"}) { %>
+  <%= partial("tools/form.html") %>
+  <a href="<%= toolPath({ tool_id: tool.ID }) %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

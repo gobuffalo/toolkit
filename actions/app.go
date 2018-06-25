@@ -11,6 +11,8 @@ import (
 	"github.com/gobuffalo/buffalo/middleware/i18n"
 	"github.com/gobuffalo/packr"
 	"github.com/gobuffalo/toolkit/models"
+
+	"time"
 )
 
 // ENV is used to help switch settings based on where the
@@ -28,6 +30,7 @@ func App() *buffalo.App {
 			Env:         ENV,
 			SessionName: "_toolkit_session",
 		})
+
 		// Automatically redirect to SSL
 		app.Use(forceSSL())
 
@@ -47,9 +50,20 @@ func App() *buffalo.App {
 		// Setup and use translations:
 		app.Use(translations())
 
-		app.GET("/", HomeHandler)
-
+		app.Use(func(next buffalo.Handler) buffalo.Handler {
+			return func(c buffalo.Context) error {
+				c.Set("year", time.Now().Year())
+				return next(c)
+			}
+		})
+		tools := ToolsResource{}
+		app.GET("/", tools.List)
+		app.Resource("/tools", tools)
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
+
+		if err := addRepoWorkers(app.Context, app.Worker); err != nil {
+			app.Stop(err)
+		}
 	}
 
 	return app

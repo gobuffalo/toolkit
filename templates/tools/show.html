@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1><%= tool.NameWithOwner %></h1>
+  <h3><a href="<%= tool.URL %>" target="_blank"><%= tool.URL %></a></h3>
+  <ul class="list-unstyled list-inline">
+    <li class="list-inline-item"><a href="<%= toolsPath() %>" class="btn btn-info">Back to all Tools</a></li>
+  </ul>
+</div>
+
+<%= markdown(tool.Description.String) %>
+
+<p>
+  <strong>Topics</strong>:
+  <%= loop("topic", tool.Topics) { %>
+    <a href="<%= toolsPath({topic: topic})%>"><%= topic %></a>
+  <% } %>
+</p>
+
+<ul class="nav nav-tabs" id="repo-deets" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="readme-tab" data-toggle="tab" href="#readme" role="tab" aria-controls="readme" aria-selected="true">README</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="license-tab" data-toggle="tab" href="#license" role="tab" aria-controls="license" aria-selected="false">LICENSE</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="readme" role="tabpanel" aria-labelledby="readme-tab">
+    <%= markdown(tool.Readme.String) %>
+  </div>
+  <div class="tab-pane" id="license" role="tabpanel" aria-labelledby="license-tab">
+    <strong>License</strong>: <%= tool.License.Name %> -
+    <em><%= tool.License.Description.String %></em>
+
+    <%= markdown(tool.License.Body.String) %>
+  </div>
+</div>
+

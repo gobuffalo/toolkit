@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= if (params["topic"]) { %>
+    <h1><code><%= params["topic"] %></code> Tools</h1>
+  <% } else { %>
+    <h1><code>All</code> Tools</h1>
+  <% } %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>URL</th>
+    <th>Topics</th>
+  </thead>
+  <tbody>
+    <%= for (tool) in tools { %>
+      <tr>
+        <td><a href="<%= toolPath({tool_id: tool.ID}) %>"><%= tool.Name %></a></td>
+        <td><a href="<%= tool.URL %>" target="_blank"><%= tool.URL %></a></td>
+        <td><%= tool.Authors %></td>
+        <td><%= tool.Topics.Format(", ") %></td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

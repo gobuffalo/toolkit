@@ -1,0 +1,6 @@
+- id: "tool.created.success"
+  translation: "Tool was successfully created."
+- id: "tool.updated.success"
+  translation: "Tool was successfully updated."
+- id: "tool.destroyed.success"
+  translation: "Tool was successfully destroyed."

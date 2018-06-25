@@ -1,0 +1,21 @@
+[dev]
+
+  [[dev.command]]
+    name = "path-echoer"
+    command = "echo"
+    args = ["$PATH"]
+    extensions = [".go", ".html"]
+    ignore = [<%= CREATED %>]
+
+  [[dev.command]]
+    name = "event-echoer"
+    command = "echo"
+    args = ["$EVENT"]
+    extensions = [".go"]
+    ignore = []
+
+  # [[dev.http]]
+  #   name = "linter"
+  #   url = "http://127.0.0.1:4242/events"
+  #   extensions = [".go"]
+  #   ignore = [<%= REMOVED %>]
