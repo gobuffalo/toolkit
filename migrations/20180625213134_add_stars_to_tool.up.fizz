@@ -1,0 +1,2 @@
+add_column("tools", "stars", "integer", {"default": 0})
+add_index("tools", "stars", {})

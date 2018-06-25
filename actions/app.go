@@ -11,6 +11,7 @@ import (
 	"github.com/gobuffalo/buffalo/middleware/i18n"
 	"github.com/gobuffalo/packr"
 	"github.com/gobuffalo/toolkit/models"
+	"github.com/gobuffalo/toolkit/models/discovery"
 
 	"time"
 )
@@ -53,11 +54,17 @@ func App() *buffalo.App {
 		app.Use(func(next buffalo.Handler) buffalo.Handler {
 			return func(c buffalo.Context) error {
 				c.Set("year", time.Now().Year())
+				c.Set("knownTags", discovery.KnownTags)
 				return next(c)
 			}
 		})
 		tools := ToolsResource{}
 		app.GET("/", tools.List)
+
+		app.GET("/about", func(c buffalo.Context) error {
+			return c.Render(200, r.HTML("README.md"))
+		})
+
 		app.Resource("/tools", tools)
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 

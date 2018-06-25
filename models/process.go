@@ -4,15 +4,13 @@ import (
 	"github.com/gobuffalo/pop"
 	"github.com/gobuffalo/pop/nulls"
 	"github.com/gobuffalo/pop/slices"
-	"github.com/gobuffalo/toolkit/models/vcs"
-	"github.com/kr/pretty"
+	"github.com/gobuffalo/toolkit/models/discovery"
 	"github.com/pkg/errors"
 )
 
-func ProcessRepos(repos []vcs.Repository) error {
+func ProcessProjects(projects []discovery.Project) error {
 	return DB.Transaction(func(tx *pop.Connection) error {
-		for _, r := range repos {
-			pretty.Println("### r.URL ->", r.URL)
+		for _, r := range projects {
 			t := &Tool{}
 			exists, err := tx.Where("url = ?", r.URL).Exists(t)
 			if err != nil {
@@ -26,6 +24,8 @@ func ProcessRepos(repos []vcs.Repository) error {
 					return errors.WithStack(err)
 				}
 			}
+			t.Stars = r.Stars
+			t.DiscoveryEngine = r.Engine
 			t.Name = r.Name
 			t.NameWithOwner = r.NameWithOwner
 			t.URL = r.URL

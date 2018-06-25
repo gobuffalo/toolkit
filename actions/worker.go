@@ -7,7 +7,7 @@ import (
 	"github.com/gobuffalo/buffalo/worker"
 	"github.com/gobuffalo/envy"
 	"github.com/gobuffalo/toolkit/models"
-	"github.com/gobuffalo/toolkit/models/vcs/github"
+	"github.com/gobuffalo/toolkit/models/discovery/github"
 	"github.com/pkg/errors"
 )
 
@@ -44,6 +44,6 @@ func findGitHubRepos(ctx context.Context, w worker.Worker) worker.Handler {
 			return errors.WithStack(err)
 		}
 
-		return models.ProcessRepos(repos)
+		return models.ProcessProjects(repos)
 	}
 }

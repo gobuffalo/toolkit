@@ -1,18 +1,13 @@
-package vcs
+package discovery
 
-type Repository struct {
-	VCS           string
+type Project struct {
+	Engine        string
 	Name          string
 	NameWithOwner string
 	URL           string
 	Description   string
 	Readme        string
+	Stars         int
 	Topics        []string
 	License       License
-}
-
-type License struct {
-	Name        string
-	Body        string
-	Description string
 }

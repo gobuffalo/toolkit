@@ -43,6 +43,8 @@ func (v ToolsResource) List(c buffalo.Context) error {
 		q = q.Where("? = ANY(tools.topics)", topic)
 	}
 
+	q = q.Order("stars desc")
+
 	// Retrieve all Tools from the DB
 	if err := q.All(tools); err != nil {
 		return errors.WithStack(err)

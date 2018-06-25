@@ -71,13 +71,14 @@ CREATE TABLE tools (
     name character varying(255) NOT NULL,
     name_with_owner character varying(255) NOT NULL,
     url character varying(255) NOT NULL,
-    vcs character varying(255) DEFAULT 'github'::character varying NOT NULL,
+    discovery_engine character varying(255) DEFAULT 'github'::character varying NOT NULL,
     description text,
     readme text,
     authors character varying[] NOT NULL,
     topics character varying[] NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    stars integer DEFAULT 0 NOT NULL
 );
 
 
@@ -111,6 +112,13 @@ CREATE UNIQUE INDEX licenses_tool_id_idx ON licenses USING btree (tool_id);
 --
 
 CREATE UNIQUE INDEX schema_migration_version_idx ON schema_migration USING btree (version);
+
+
+--
+-- Name: tools_stars_idx; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX tools_stars_idx ON tools USING btree (stars);
 
 
 --

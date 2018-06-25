@@ -6,14 +6,13 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<%= toolsPath({topic: "plugin"}) %>">Plugins</a>
-      </li>
+      <%= for (s) in knownTags { %>
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= toolsPath({topic: s.Tag}) %>"><%= s.Description %></a>
+        </li>
+      <% } %>
       <li class="nav-item">
-        <a class="nav-link" href="<%= toolsPath({topic: "generator"}) %>">Generators</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= toolsPath({topic: "example"}) %>">Example Apps</a>
+        <a class="nav-link" href="<%= aboutPath() %>">About</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

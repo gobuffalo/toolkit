@@ -3,13 +3,13 @@ package github
 import (
 	"context"
 
-	"github.com/gobuffalo/toolkit/models/vcs"
+	"github.com/gobuffalo/toolkit/models/discovery"
 	"github.com/pkg/errors"
 	"github.com/shurcooL/githubv4"
 	"golang.org/x/oauth2"
 )
 
-var _ vcs.VCS = &Github{}
+var _ discovery.Engine = &Github{}
 
 type Github struct {
 	client *githubv4.Client
@@ -19,8 +19,8 @@ func (Github) Name() string {
 	return "github"
 }
 
-func (g Github) Search(ctx context.Context, topics ...string) ([]vcs.Repository, error) {
-	repos := []vcs.Repository{}
+func (g Github) Search(ctx context.Context, topics ...string) ([]discovery.Project, error) {
+	repos := []discovery.Project{}
 
 	var q struct {
 		Search search `graphql:"search(type: REPOSITORY, query: \"topic:gobuffalo\", first: 100, after: $repositoryCursor)"`
@@ -47,15 +47,17 @@ func (g Github) Search(ctx context.Context, topics ...string) ([]vcs.Repository,
 	return repos, nil
 }
 
-func processRepo(r repository) vcs.Repository {
+func processRepo(r repository) discovery.Project {
 	rl := r.LicenseInfo
-	repo := vcs.Repository{
+	repo := discovery.Project{
+		Engine:        "github",
 		Name:          r.Name,
 		NameWithOwner: r.NameWithOwner,
 		URL:           r.URL,
 		Description:   r.Description,
 		Readme:        r.Object.Text.Text,
-		License: vcs.License{
+		Stars:         r.Stargazers.TotalCount,
+		License: discovery.License{
 			Name:        rl.Name,
 			Body:        rl.Body,
 			Description: rl.Description,

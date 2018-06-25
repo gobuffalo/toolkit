@@ -5,22 +5,31 @@
     <h1><code>All</code> Tools</h1>
   <% } %>
 </div>
-
-<table class="table table-striped">
-  <thead>
-    <th>Name</th>
-    <th>URL</th>
-    <th>Topics</th>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Stars</th>
+      <th scope="col">URL</th>
+      <th scope="col">Topics</th>
+      <th>&nbsp;</th>
+    </tr>
   </thead>
   <tbody>
+
     <%= for (tool) in tools { %>
       <tr>
         <td><a href="<%= toolPath({tool_id: tool.ID}) %>"><%= tool.Name %></a></td>
+        <td><%= tool.Stars %></td>
         <td><a href="<%= tool.URL %>" target="_blank"><%= tool.URL %></a></td>
-        <td><%= tool.Authors %></td>
-        <td><%= tool.Topics.Format(", ") %></td>
+        <td>
+          <%= loop("topic", tool.Topics) { %>
+            <a href="<%= toolsPath({topic: topic})%>"><%= topic %></a>
+          <% } %>
+        </td>
       </tr>
     <% } %>
+
   </tbody>
 </table>
 
