@@ -1,0 +1,9 @@
+build:
+  docker:
+    web: Dockerfile
+    worker: worker/Dockerfile
+release:
+  command:
+    - /bin/app migrate
+run:
+  web: /bin/app

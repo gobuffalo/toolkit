@@ -2,6 +2,8 @@
 
 The Buffalo Toolkit watches services, such as GitHub, and looks for repositories with a tag of `gobuffalo`. All projects found will be indexed here.
 
+Inspired by the excellent [https://www.ruby-toolbox.com](https://www.ruby-toolbox.com)
+
 # How do I get my package, tool, etc... listed?
 
 To get listed here you must tag your project on your hosting provider with `gobuffalo`. See details for the currently implemented discovery tools.
