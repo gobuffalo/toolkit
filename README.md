@@ -29,4 +29,8 @@ There are a few more tags that you can use that will help the Buffalo Toolkit be
 
 On GitHub you can use the "Topics" feature of your repository to tag your projects with `gobuffalo` and other category tags.
 
+# Contributing
+
+Source for this project can be found at [https://github.com/gobuffalo/toolkit](https://github.com/gobuffalo/toolkit).
+
 [Powered by Buffalo](http://gobuffalo.io)
