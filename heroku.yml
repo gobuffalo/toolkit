@@ -5,5 +5,3 @@ build:
 release:
   command:
     - /bin/app migrate
-run:
-  web: /bin/app
