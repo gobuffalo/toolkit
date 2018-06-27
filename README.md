@@ -33,6 +33,8 @@ On GitHub you can use the "Topics" feature of your repository to tag your projec
 
 # Contributing
 
+This project is for the community to contribute to. It needs your help to get better.
+
 Source for this project can be found at [https://github.com/gobuffalo/toolkit](https://github.com/gobuffalo/toolkit).
 
 [Powered by Buffalo](http://gobuffalo.io)
