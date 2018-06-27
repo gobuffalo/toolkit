@@ -14,6 +14,8 @@ const (
 	DEPLOYMENT = "deployment"
 	WEBPACK    = "webpack"
 	EXAMPLE    = "example"
+	TESTING    = "testing"
+	WORKER     = "worker"
 	OTHER      = "other"
 )
 
@@ -28,6 +30,8 @@ var KnownTags = []struct {
 	{TEMPLATING, "Templating"},
 	{GRIFTS, "Grift Tasks"},
 	{DEPLOYMENT, "Deployment"},
+	{TESTING, "Testing"},
+	{WORKER, "Workers/Adapters"},
 	{WEBPACK, "Webpack/Front-End"},
 }
 
