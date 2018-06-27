@@ -9,7 +9,7 @@ import (
 	"golang.org/x/oauth2"
 )
 
-var _ discovery.Engine = &Github{}
+var _ discovery.Service = &Github{}
 
 type Github struct {
 	client *githubv4.Client
@@ -50,7 +50,7 @@ func (g Github) Search(ctx context.Context, topics ...string) ([]discovery.Proje
 func processRepo(r repository) discovery.Project {
 	rl := r.LicenseInfo
 	repo := discovery.Project{
-		Engine:        "github",
+		Service:       "github",
 		Name:          r.Name,
 		NameWithOwner: r.NameWithOwner,
 		URL:           r.URL,

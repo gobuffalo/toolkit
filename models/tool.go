@@ -13,19 +13,19 @@ import (
 )
 
 type Tool struct {
-	ID              uuid.UUID     `json:"id" db:"id"`
-	CreatedAt       time.Time     `json:"created_at" db:"created_at"`
-	UpdatedAt       time.Time     `json:"updated_at" db:"updated_at"`
-	Name            string        `json:"name" db:"name"`
-	NameWithOwner   string        `json:"name_with_owner" db:"name_with_owner"`
-	URL             string        `json:"url" db:"url"`
-	DiscoveryEngine string        `json:"discovery_engine" db:"discovery_engine"`
-	Stars           int           `json:"stars" db:"stars"`
-	Description     nulls.String  `json:"description" db:"description"`
-	Readme          nulls.String  `json:"readme" db:"readme"`
-	Authors         slices.String `json:"authors" db:"authors"`
-	Topics          slices.String `json:"topics" db:"topics"`
-	License         License       `json:"license" has_one:"license"`
+	ID               uuid.UUID     `json:"id" db:"id"`
+	CreatedAt        time.Time     `json:"created_at" db:"created_at"`
+	UpdatedAt        time.Time     `json:"updated_at" db:"updated_at"`
+	Name             string        `json:"name" db:"name"`
+	NameWithOwner    string        `json:"name_with_owner" db:"name_with_owner"`
+	URL              string        `json:"url" db:"url"`
+	DiscoveryService string        `json:"discovery" db:"discovery"`
+	Stars            int           `json:"stars" db:"stars"`
+	Description      nulls.String  `json:"description" db:"description"`
+	Readme           nulls.String  `json:"readme" db:"readme"`
+	Authors          slices.String `json:"authors" db:"authors"`
+	Topics           slices.String `json:"topics" db:"topics"`
+	License          License       `json:"license" has_one:"license"`
 }
 
 // String is not required by pop and may be deleted

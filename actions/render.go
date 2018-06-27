@@ -3,16 +3,21 @@ package actions
 import (
 	"bytes"
 	"html/template"
-	"reflect"
+	"strings"
 
 	"github.com/gobuffalo/buffalo/render"
 	"github.com/gobuffalo/packr"
-	"github.com/gobuffalo/plush"
-	"github.com/pkg/errors"
+	"github.com/gobuffalo/tags"
+	"github.com/gobuffalo/toolkit/models/discovery"
 )
 
 var r *render.Engine
 var assetsBox = packr.NewBox("../public")
+
+var Helpers = render.Helpers{
+	"knownTagsMD": knownTagsMD,
+	"topicLinks":  topicLinks,
+}
 
 func init() {
 	r = render.New(render.Options{
@@ -24,32 +29,28 @@ func init() {
 		AssetsBox:    assetsBox,
 
 		// Add template helpers here:
-		Helpers: render.Helpers{
-			"loop": loop,
-		},
+		Helpers: Helpers,
 	})
 }
 
-func loop(name string, slice interface{}, help plush.HelperContext) (template.HTML, error) {
-	if !help.HasBlock() {
-		return "", errors.New("loop requires a block")
-	}
+func knownTagsMD() string {
 	bb := &bytes.Buffer{}
-
-	rv := reflect.Indirect(reflect.ValueOf(slice))
-	if rv.Kind() != reflect.Slice {
-		return "", errors.Errorf("slice must type of slice")
-	}
-	for i := 0; i < rv.Len(); i++ {
-		v := rv.Index(i).Interface()
-		ctx := help.Context.New()
-		ctx.Set(name, v)
-		s, err := help.BlockWith(ctx)
-		if err != nil {
-			return "", errors.WithStack(err)
-		}
-		bb.WriteString(s)
+	for _, tag := range discovery.KnownTags {
+		bb.WriteString("* `" + tag.Tag + "` - " + tag.Description + "\n")
 	}
 
-	return template.HTML(bb.String()), nil
+	return bb.String()
+}
+
+func topicLinks(topics []string) (template.HTML, error) {
+	t := tags.New("span", nil)
+	var as []string
+	for _, topic := range topics {
+		as = append(as, tags.New("a", tags.Options{
+			"href": "/tools?topic=" + topic,
+			"body": topic,
+		}).String())
+	}
+	t.Append(strings.Join(as, " "))
+	return t.HTML(), nil
 }

@@ -1,0 +1,19 @@
+<div class="nav-side-menu">
+  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+  <div class="menu-list">
+
+    <ul id="menu-content" class="menu-content collapse out">
+      <%= for (s) in knownTags { %>
+        <li class="<%= if (s.Tag == params["topic"]) { return "active" }  %>">
+          <a href="<%= toolsPath({topic: s.Tag}) %>">
+            <%= s.Description %>
+          </a>
+        </li>
+      <% } %>
+      <li class="<%= if (!params["topic"]) {return "active"} %>">
+        <a href="<%= toolsPath() %>">All</a>
+      </li>
+    </ul>
+  </div>
+</div>

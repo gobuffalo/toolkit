@@ -10,20 +10,16 @@ To get listed here you must tag your project on your hosting provider with `gobu
 
 There are a few more tags that you can use that will help the Buffalo Toolkit better categorize your project. You can add as many of this tags to your project as is suitable. Please try to refrain from using more than just a few tags.
 
-* `plugin`
-* `generator`
-* `example`
-* `pop`
-* `templating`
-* `grifts`
-* `deployment`
-* `webpack`
-* `middleware`
+<%= markdown(knownTagsMD()) %>
 
 # Currently Implemented Discovery Tools
 
 ## GitHub
 
 On GitHub you can use the "Topics" feature of your repository to tag your projects with `gobuffalo` and other category tags.
+
+# Contributing
+
+Source for this project can be found at [https://github.com/gobuffalo/toolkit](https://github.com/gobuffalo/toolkit).
 
 [Powered by Buffalo](http://gobuffalo.io)

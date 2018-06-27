@@ -10,15 +10,18 @@ To get listed here you must tag your project on your hosting provider with `gobu
 
 There are a few more tags that you can use that will help the Buffalo Toolkit better categorize your project. You can add as many of this tags to your project as is suitable. Please try to refrain from using more than just a few tags.
 
-* `plugin`
-* `generator`
-* `example`
-* `pop`
-* `templating`
-* `grifts`
-* `deployment`
-* `webpack`
-* `middleware`
+* `plugin` - Plugins
+* `generator` - Generators
+* `middleware` - Middleware
+* `pop` - Pop/Soda
+* `templating` - Templating
+* `grifts` - Grift Tasks
+* `deployment` - Deployment
+* `testing` - Testing
+* `example` - Example Apps
+* `worker` - Workers/Adapters
+* `webpack` - Webpack/Front-End
+
 
 # Currently Implemented Discovery Tools
 

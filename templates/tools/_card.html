@@ -1,0 +1,28 @@
+<div class="card border-info">
+  <div class="card-header bg-info">
+    <div class="row">
+      <h3 class="col-10">
+        <a href="<%= toolPath({tool_id: tool.ID}) %>">
+          <%= tool.NameWithOwner %>
+        </a>
+      </h3>
+      <h3 class="col-2">
+        <div class="float-right">
+          <i class="fas fa-star"></i>
+          <%= tool.Stars %>
+        </div>
+      </h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      <a href="<%= tool.URL %>" target="_blank">
+        <%= tool.URL %>
+      </a>
+    </h5>
+
+    <%= topicLinks(tool.Topics) %>
+
+    <p class="card-text"><%= markdown(tool.Description.String) %></p>
+  </div>
+</div>

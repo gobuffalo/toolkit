@@ -71,7 +71,7 @@ CREATE TABLE tools (
     name character varying(255) NOT NULL,
     name_with_owner character varying(255) NOT NULL,
     url character varying(255) NOT NULL,
-    discovery_engine character varying(255) DEFAULT 'github'::character varying NOT NULL,
+    discovery character varying(255) DEFAULT 'github'::character varying NOT NULL,
     description text,
     readme text,
     authors character varying[] NOT NULL,

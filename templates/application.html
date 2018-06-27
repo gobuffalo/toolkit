@@ -1,19 +1,30 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>Buffalo Toolkit</title>
+    <title>Buffalo - Toolkit</title>
     <%= stylesheetTag("application.css") %>
     <meta name="csrf-param" content="authenticity_token" />
     <meta name="csrf-token" content="<%= authenticity_token %>" />
+    <link rel="icon" href="<%= assetPath("images/favicon.ico") %>">
   </head>
   <body>
+
     <%= partial("nav.html") %>
-
-    <div class="container">
-      <%= partial("flash.html") %>
-      <%= yield %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2">
+          <%= partial("side_nav.html") %>
+        </div>
+        <div class="col-10">
+          <div class="container">
+            <%= partial("flash.html") %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
     </div>
-
     <%= partial("footer.html") %>
 
     <%= javascriptTag("application.js") %>

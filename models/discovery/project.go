@@ -1,7 +1,7 @@
 package discovery
 
 type Project struct {
-	Engine        string
+	Service       string
 	Name          string
 	NameWithOwner string
 	URL           string
