@@ -25,6 +25,8 @@ There are a few more tags that you can use that will help the Buffalo Toolkit be
 * `webpack` - Webpack/Front-End
 
 
+Any other tags will still be indexed and searchable, but the tool may not show in the "known" categories section.
+
 # Currently Implemented Discovery Tools
 
 ## GitHub
@@ -32,8 +34,6 @@ There are a few more tags that you can use that will help the Buffalo Toolkit be
 On GitHub you can use the "Topics" feature of your repository to tag your projects with `gobuffalo` and other category tags.
 
 # Contributing
-
-This project is for the community to contribute to. It needs your help to get better.
 
 Source for this project can be found at [https://github.com/gobuffalo/toolkit](https://github.com/gobuffalo/toolkit).
 
