@@ -1,9 +1,8 @@
-create_table("licenses", func(t) {
+create_table("licenses") {
 	t.Column("id", "uuid", {"primary": true})
 	t.Column("tool_id", "uuid", {})
 	t.Column("name", "string", {})
 	t.Column("body", "text", {"null": true})
 	t.Column("description", "text", {"null": true})
-})
-
+}
 add_index("licenses", "tool_id", {"unique": true})

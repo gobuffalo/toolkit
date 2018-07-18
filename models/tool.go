@@ -23,7 +23,6 @@ type Tool struct {
 	Stars            int           `json:"stars" db:"stars"`
 	Description      nulls.String  `json:"description" db:"description"`
 	Readme           nulls.String  `json:"readme" db:"readme"`
-	Authors          slices.String `json:"authors" db:"authors"`
 	Topics           slices.String `json:"topics" db:"topics"`
 	License          License       `json:"license" has_one:"license"`
 }
@@ -48,6 +47,7 @@ func (t Tools) String() string {
 func (t *Tool) Validate(tx *pop.Connection) (*validate.Errors, error) {
 	return validate.Validate(
 		&validators.StringIsPresent{Field: t.Name, Name: "Name"},
+		&validators.StringIsPresent{Field: t.NameWithOwner, Name: "NameWithOwner"},
 		&validators.StringIsPresent{Field: t.URL, Name: "URL"},
 	), nil
 }

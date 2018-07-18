@@ -74,7 +74,6 @@ CREATE TABLE tools (
     discovery character varying(255) DEFAULT 'github'::character varying NOT NULL,
     description text,
     readme text,
-    authors character varying[] NOT NULL,
     topics character varying[] NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,

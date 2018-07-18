@@ -1,4 +1,4 @@
-create_table("tools", func(t) {
+create_table("tools") {
 	t.Column("id", "uuid", {"primary": true})
 	t.Column("name", "string", {})
 	t.Column("name_with_owner", "string", {})
@@ -8,6 +8,5 @@ create_table("tools", func(t) {
 	t.Column("readme", "text", {"null": true})
 	t.Column("authors", "varchar[]", {})
 	t.Column("topics", "varchar[]", {})
-})
-
+}
 add_index("tools", "url", {"unique": true})
