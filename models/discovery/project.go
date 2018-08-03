@@ -8,6 +8,8 @@ type Project struct {
 	Description   string
 	Readme        string
 	Stars         int
+	Watchers      int
+	Forks         int
 	Topics        []string
 	License       License
 }

@@ -21,6 +21,8 @@ type Tool struct {
 	URL              string        `json:"url" db:"url"`
 	DiscoveryService string        `json:"discovery" db:"discovery"`
 	Stars            int           `json:"stars" db:"stars"`
+	Watchers         int           `json:"watchers" db:"watchers"`
+	Forks            int           `json:"forks" db:"forks"`
 	Description      nulls.String  `json:"description" db:"description"`
 	Readme           nulls.String  `json:"readme" db:"readme"`
 	Topics           slices.String `json:"topics" db:"topics"`

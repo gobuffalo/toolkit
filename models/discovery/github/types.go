@@ -44,11 +44,21 @@ type repository struct {
 	Description   string
 	LicenseInfo   license
 	Stargazers    stars
+	Watchers      watchers
+	Forks         forks
 	Topics        topics `graphql:"repositoryTopics(first: 100)"`
 	Object        object `graphql:"object(expression: \"master:README.md\")"`
 }
 
 type stars struct {
+	TotalCount int
+}
+
+type watchers struct {
+	TotalCount int
+}
+
+type forks struct {
 	TotalCount int
 }
 

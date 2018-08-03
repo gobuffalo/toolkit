@@ -57,6 +57,8 @@ func processRepo(r repository) discovery.Project {
 		Description:   r.Description,
 		Readme:        r.Object.Text.Text,
 		Stars:         r.Stargazers.TotalCount,
+		Watchers:      r.Watchers.TotalCount,
+		Forks:         r.Forks.TotalCount,
 		License: discovery.License{
 			Name:        rl.Name,
 			Body:        rl.Body,
