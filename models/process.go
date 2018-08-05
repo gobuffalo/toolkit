@@ -25,6 +25,8 @@ func ProcessProjects(projects []discovery.Project) error {
 				}
 			}
 			t.Stars = r.Stars
+			t.Watchers = r.Watchers
+			t.Forks = r.Forks
 			t.DiscoveryService = r.Service
 			t.Name = r.Name
 			t.NameWithOwner = r.NameWithOwner

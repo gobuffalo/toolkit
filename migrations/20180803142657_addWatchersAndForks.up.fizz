@@ -1,0 +1,2 @@
+add_column("tools", "watchers", "integer", {"default": 0})
+add_column("tools", "forks", "integer", {"default": 0})
