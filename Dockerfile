@@ -5,12 +5,12 @@ FROM gobuffalo/buffalo:development as builder
 RUN mkdir -p $GOPATH/src/github.com/gobuffalo/toolkit
 WORKDIR $GOPATH/src/github.com/gobuffalo/toolkit
 
+ENV GO111MODULE=on
 # this will cache the npm install step, unless package.json changes
 ADD package.json .
 ADD yarn.lock .
 RUN yarn install --no-progress
 ADD . .
-RUN dep ensure -v
 RUN buffalo build --static -o /bin/app
 
 FROM alpine
