@@ -2,11 +2,12 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.13
--- Dumped by pg_dump version 9.5.13
+-- Dumped from database version 9.6.10
+-- Dumped by pg_dump version 10.5
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -84,7 +85,7 @@ CREATE TABLE public.tools (
 ALTER TABLE public.tools OWNER TO postgres;
 
 --
--- Name: licenses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: licenses licenses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.licenses
@@ -92,7 +93,7 @@ ALTER TABLE ONLY public.licenses
 
 
 --
--- Name: tools_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: tools tools_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.tools
@@ -125,16 +126,6 @@ CREATE INDEX tools_stars_idx ON public.tools USING btree (stars);
 --
 
 CREATE UNIQUE INDEX tools_url_idx ON public.tools USING btree (url);
-
-
---
--- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM postgres;
-GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --

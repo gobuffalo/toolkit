@@ -24,7 +24,7 @@ var KnownTags = []struct {
 	{MIDDLEWARE, "Middleware"},
 	{POP, "Pop/Soda"},
 	{TEMPLATING, "Templating"},
-	{GRIFTS, "Grift Tasks"},
+	// {GRIFTS, "Grift Tasks"},
 	{DEPLOYMENT, "Deployment"},
 	{TESTING, "Testing"},
 	{EXAMPLE, "Example Apps"},

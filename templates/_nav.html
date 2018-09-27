@@ -1,18 +1,34 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">Buffalo Toolkit</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav animate side-nav">
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
+      <%= for (s) in knownTags { %>
+        <li class="nav-item <%= if (s.Tag == params[" topic "]) { return "active " }  %>">
+          <a href="<%= toolsPath({topic: s.Tag}) %>" class="nav-link">
+            <%= s.Description %>
+          </a>
+        </li>
+      <% } %>
+
+      <li class="<%= if (!params[" topic "]) {return "active "} %>">
+        <a href="<%= toolsPath() %>" class="nav-link">All</a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav ml-md-auto d-md-flex top-nav">
       <li class="nav-item">
         <a class="nav-link" href="<%= aboutPath() %>">About</a>
       </li>
+      <li class="nav-item">
+        <form class="form-inline my-2 my-lg-0" action="<%= toolsPath() %>">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" value="<%= params["topic"] %>" name="topic">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="<%= toolsPath() %>">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" value="<%= params["topic"] %>" name="topic">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>

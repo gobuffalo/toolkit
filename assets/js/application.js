@@ -13,7 +13,7 @@ $(() => {
     src = src.replace(gh, rawGh);
     src = src.replace("blob/", "");
     img.attr("src", src);
-    // TODO: get .svg displaying
+    //TODO: get .svg displaying
     if (src.endsWith(".svg")) {
       img.remove();
     }
@@ -26,4 +26,11 @@ $(() => {
       $a.attr("target", "_blank");
     }
   });
+
+  $(".leftmenutrigger").on("click", (e) => {
+    $(".side-nav").toggleClass("open");
+    $("#wrapper").toggleClass("open");
+    e.preventDefault();
+  });
 });
+

@@ -11,22 +11,15 @@
   </head>
   <body>
 
-    <%= partial("nav.html") %>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 col-2">
-          <%= partial("side_nav.html") %>
-        </div>
-        <div class="col-md-8 col-10">
-          <div class="container">
-            <%= partial("flash.html") %>
-            <%= yield %>
-          </div>
-        </div>
+    <div id="wrapper" class="animate">
+      <%= partial("nav") %>
+      <div class="container-fluid" id="main">
+        <%= partial("flash.html") %>
+        <%= yield %>
       </div>
     </div>
-    <%= partial("footer.html") %>
 
+    <%= partial("footer.html") %>
     <%= javascriptTag("application.js") %>
   </body>
 </html>
