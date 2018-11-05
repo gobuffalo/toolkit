@@ -1,0 +1,89 @@
+.header-top {
+	height: 70px;
+  background-color: #0A193F;
+  color: white;
+
+  img {
+    width:50px;
+    margin-right: 10px;
+  }
+
+  a {
+    color: white;
+  }
+
+  .navbar-brand {
+    color: #FFFFFF;	
+    font-size: 26px;	
+    letter-spacing: -0.76px;	
+    line-height: 32px;	
+    text-align: center;
+    margin-right: 30px;
+  }
+
+  .navbar-brand .brand {
+      font-weight: bold;	
+  }
+
+  .about {
+    border: 1px solid #fff;
+    border-radius: 3px;
+    padding: 3px 9px;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  .search-input {
+    height: 36px;
+    width: 336px;	
+    border: 1px solid #D3D3D3;	
+    border-radius: 6px;	
+    background-color: #FFFFFF;
+  }
+
+  .search-button {
+      height: 36px;	
+      border-radius: 6px;	
+      background-color: #DA602D;
+
+      color: #FFFFFF;	
+      font-size: 16px;	
+      font-weight: 500;	
+      letter-spacing: -0.47px;	
+      line-height: 20px;	
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: 0;
+  }
+}
+
+.numbers {
+  font-size: 12px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.pre-header {
+  height: 60px;
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+
+  .tool-count .count {  
+    height: 29px;	
+    width: 66px;	
+    color: #1A2539;	
+    font-size: 30px;	
+    letter-spacing: -0.24px;	
+    line-height: 30px;	
+    text-align: center;  
+  }
+
+  #dropdownMenuButton {
+    border: 1px solid #ddd;
+    padding: 3px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}
