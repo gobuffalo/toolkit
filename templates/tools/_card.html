@@ -1,40 +1,38 @@
-<div class="card border-info">
-  <div class="card-header bg-info">
-    <div class="row">
-      <h3 class="col-md-6">
+<div class="col-12 col-sm-6 col-md-4 col-xl-3">
+  <div class="card">
+    <div class="">
+      <h3 class="text-center">
         <a href="<%= toolPath({tool_id: tool.ID}) %>">
-          <%= tool.NameWithOwner %>
+          <%= capitalize(tool.Name) %>
         </a>
       </h3>
-        <h3 class="col-md-2 col-sm-4">
-          <div class="float-right">
-            <i class="fas fa-code-branch"></i>
-            <%= tool.Forks %>
-          </div>
-        </h3>
-        <h3 class="col-md-2 col-sm-4">
-          <div class="float-right">
-            <i class="fas fa-eye"></i>
-            <%= tool.Watchers %>
-          </div>
-        </h3>
-        <h3 class="col-md-2 col-sm-4">
-          <div class="float-right">
-            <i class="fas fa-star"></i>
-            <%= tool.Stars %>
-          </div>
-        </h3>
+      <h6 class="text-center"><%= tool.NameWithOwner %></h6>
+    </div>
+    <div class="card-body">      
+  
+      <p class="card-text">
+        <%= markdown(tool.Description.String) %>
+      </p>
+      
+      <div class="topics">
+        <%= topicLinks(tool.Topics) %>
+      </div>
+    </div>
+
+    <div class="numbers row">
+        <div class="col-4 text-center">
+          <i class="fas fa-code-branch"></i>
+          <%= tool.Forks %>
+        </div>
+        <div class="col-4 text-center">
+          <i class="fas fa-eye"></i>
+          <%= tool.Watchers %>
+        </div>
+        <div class="col-4 text-center">
+          <i class="fas fa-star"></i>
+          <%= tool.Stars %>
+        </div>
     </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">
-      <a href="<%= tool.URL %>" target="_blank">
-        <%= tool.URL %>
-      </a>
-    </h5>
-
-    <%= topicLinks(tool.Topics) %>
-
-    <p class="card-text"><%= markdown(tool.Description.String) %></p>
-  </div>
 </div>
+

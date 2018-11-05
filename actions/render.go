@@ -15,8 +15,9 @@ var r *render.Engine
 var assetsBox = packr.NewBox("../public")
 
 var Helpers = render.Helpers{
-	"knownTagsMD": knownTagsMD,
-	"topicLinks":  topicLinks,
+	"knownTagsMD":   knownTagsMD,
+	"topicLinks":    topicLinks,
+	"knownTagsHTML": knownTagsHTML,
 }
 
 func init() {
@@ -40,6 +41,20 @@ func knownTagsMD() string {
 	}
 
 	return bb.String()
+}
+
+func knownTagsHTML() (template.HTML, error) {
+	t := tags.New("span", nil)
+	var as []string
+	for _, tag := range discovery.KnownTags {
+		as = append(as, tags.New("a", tags.Options{
+			"href": "/tools?topic=" + tag.Tag,
+			"body": tag.Tag,
+		}).String())
+	}
+
+	t.Append(strings.Join(as, " "))
+	return t.HTML(), nil
 }
 
 func topicLinks(topics []string) (template.HTML, error) {
