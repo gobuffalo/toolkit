@@ -8,11 +8,13 @@
     <meta name="csrf-param" content="authenticity_token" />
     <meta name="csrf-token" content="<%= authenticity_token %>" />
     <link rel="icon" href="<%= assetPath("images/favicon.ico") %>">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
   </head>
   <body>
-
-    <div id="wrapper" class="animate">
+    <div id="wrapper">
       <%= partial("nav") %>
+      <%= contentOf("indicator-bar") %>
+
       <div class="container-fluid" id="main">
         <%= partial("flash.html") %>
         <%= yield %>

@@ -1,32 +1,22 @@
-<nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Buffalo Toolkit</a>
+<nav class="navbar header-top fixed-top navbar-expand-lg">
+  <img src="<%= assetPath("/images/logo.svg") %>" alt="Buffalo logo">
+  <a class="navbar-brand" href="/">
+    <span class="brand">Buffalo</span> / <span>Toolkit</span>
+    
+  </a>
+
+  <a class="nav-link about" href="<%= aboutPath() %>">About</a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav animate side-nav">
-
-      <%= for (s) in knownTags { %>
-        <li class="nav-item <%= if (s.Tag == params[" topic "]) { return "active " }  %>">
-          <a href="<%= toolsPath({topic: s.Tag}) %>" class="nav-link">
-            <%= s.Description %>
-          </a>
-        </li>
-      <% } %>
-
-      <li class="<%= if (!params[" topic "]) {return "active "} %>">
-        <a href="<%= toolsPath() %>" class="nav-link">All</a>
-      </li>
-
-    </ul>
     <ul class="navbar-nav ml-md-auto d-md-flex top-nav">
       <li class="nav-item">
-        <a class="nav-link" href="<%= aboutPath() %>">About</a>
-      </li>
-      <li class="nav-item">
         <form class="form-inline my-2 my-lg-0" action="<%= toolsPath() %>">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" value="<%= params["topic"] %>" name="topic">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <input class="form-control mr-sm-2 search-input" type="text" placeholder="Search" aria-label="Search" value="<%= params["topic"] %>" name="topic">
+          <button class="btn my-2 my-sm-0 search-button" type="submit">Search</button>
         </form>
       </li>
     </ul>
