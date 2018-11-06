@@ -11,7 +11,7 @@ ADD package.json .
 ADD yarn.lock .
 RUN yarn install --no-progress
 ADD . .
-RUN buffalo build --static -o /bin/app
+RUN buffalo build --static -o /bin/app --skip-template-validation
 
 FROM alpine
 RUN apk add --no-cache bash
