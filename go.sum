@@ -129,6 +129,7 @@ github.com/gobuffalo/github_flavored_markdown v1.0.7/go.mod h1:w93Pd9Lz6LvyQXEG6
 github.com/gobuffalo/httptest v1.0.1/go.mod h1:ZLh197oiAQAJO2L7WYaZhllanqUUkWsUQ75bU6D1J6A=
 github.com/gobuffalo/httptest v1.0.2 h1:LWp2khlgA697h4BIYWW2aRxvB93jMnBrbakQ/r2KLzs=
 github.com/gobuffalo/httptest v1.0.2/go.mod h1:7T1IbSrg60ankme0aDLVnEY0h056g9M1/ZvpVThtB7E=
+github.com/gobuffalo/httptest v1.0.3 h1:BKssItUAhTWVHeh/0zI1SqC/nbcN/GNXxwlBwuG5Qik=
 github.com/gobuffalo/httptest v1.0.3/go.mod h1:7T1IbSrg60ankme0aDLVnEY0h056g9M1/ZvpVThtB7E=
 github.com/gobuffalo/licenser v0.0.0-20180911183003-6611b155b234/go.mod h1:dKS3aMBLM+AbeP4NdNL80CDl62D5aP/HmZ0Vwk72PLE=
 github.com/gobuffalo/licenser v0.0.0-20180924033006-eae28e638a42/go.mod h1:Ubo90Np8gpsSZqNScZZkVXXAo5DGhTb+WYFIjlnog8w=

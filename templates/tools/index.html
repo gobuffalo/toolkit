@@ -1,13 +1,52 @@
-<div class="page-header">
-  <%= if (params["topic"]) { %>
-    <h1><code><%= params["topic"] %></code> Tools</h1>
-  <% } else { %>
-    <h1><code>All</code> Tools</h1>
-  <% } %>
-</div>
+<%= contentFor("indicator-bar") {%>
+  <div class="pre-header">
+    <div class="tool-count float-left">
+      <span class="count">
+        <%= pagination.TotalEntriesSize %></span> Tools
+    </div>
 
-<%= for (tool) in tools { return partial("tools/card.html", {tool: tool}) } %>
+    <div class="dropdown float-right">
+      <div class="dropdown-toggle selector" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <%= if (params["topic"]) { %>
+          <%= capitalize(params["topic"]) %> Tools
+        <% } else { %>
+          All Tools
+        <% } %>
+      </div>
+      
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/">All Tools</a>
+        <%= for (s) in knownTags { %>    
+          <a href="<%= toolsPath({topic: s.Tag}) %>" class="dropdown-item"><%= s.Description %></a>              
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% } %>
 
-<div class="text-center">
-  <%= paginator(pagination) %>
+<div class="content">
+  <div class="page-header">
+    <%= if (params["topic"]) { %>
+    <h1>
+      <%= capitalize(params["topic"]) %> Tools</h1>
+    <% } else { %>
+      <h1>All Tools</h1>
+    <% } %>
+  </div>
+
+  <div class="row cards">
+    <%= for (tool) in tools { return partial("tools/card.html", {tool: tool}) } %>
+  </div>
+  
+  <hr>
+  <div class="row">
+    <div class="col-6">Showing <%= pagination.CurrentEntriesSize %> of <%= pagination.TotalEntriesSize %> tools</div>
+    <div class="col-6">
+      <div class="float-right">
+        <%= paginator(pagination) %>
+      </div>
+    </div>
+  </div>
+
 </div>
