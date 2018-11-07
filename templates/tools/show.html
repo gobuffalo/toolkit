@@ -9,7 +9,7 @@
 <% }%>
 
 <div class="pt-2 mb-3 details">
-
+  
   <div class="show-top-section p-3 rounded border mb-3">
     <div class="row">
       <div class="col-12">
@@ -17,7 +17,7 @@
           <%= capitalize(tool.Name) %>
         </h3>
         <h6 class="">
-          <a href="">
+          <a href="<%= tool.URL %>">
             <%= tool.NameWithOwner %></a>
         </h6>
         <p>
@@ -25,7 +25,6 @@
         </p>
       </div>
     </div>
-    
     
     <div class="topics">
       <%= topicLinks(tool.Topics) %>

@@ -2,6 +2,8 @@ package models
 
 import (
 	"encoding/json"
+	"fmt"
+	"html/template"
 	"time"
 
 	"github.com/gobuffalo/pop"
@@ -10,6 +12,7 @@ import (
 	"github.com/gobuffalo/uuid"
 	"github.com/gobuffalo/validate"
 	"github.com/gobuffalo/validate/validators"
+	"regexp"
 )
 
 type Tool struct {
