@@ -12,10 +12,11 @@
   </head>
   <body>
     <div id="wrapper">
+      
       <%= partial("nav") %>
       <%= contentOf("indicator-bar") %>
 
-      <div class="container-fluid" id="main">
+      <div class="container" id="main">
         <%= partial("flash.html") %>
         <%= yield %>
       </div>
