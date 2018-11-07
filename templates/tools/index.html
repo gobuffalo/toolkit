@@ -2,7 +2,13 @@
   <div class="pre-header">
     <div class="tool-count float-left">
       <span class="count">
-        <%= pagination.TotalEntriesSize %></span> Tools
+        <%= pagination.TotalEntriesSize %></span>
+        <%= if (params["topic"]) { %>
+          <span class="topic">
+            <%= capitalize(params["topic"]) %>
+          </span>
+        <% } %>
+        Tools
     </div>
 
     <div class="dropdown float-right">
@@ -41,7 +47,15 @@
   
   <hr>
   <div class="row">
-    <div class="col-6">Showing <%= pagination.CurrentEntriesSize %> of <%= pagination.TotalEntriesSize %> tools</div>
+    <div class="col-6">
+      Showing <%= pagination.CurrentEntriesSize %> of <%= pagination.TotalEntriesSize %> 
+      <%= if (params["topic"]) { %>
+        <span class="topic">
+          <%= capitalize(params["topic"]) %>
+        </span>
+      <% } %> 
+      tools
+    </div>
     <div class="col-6">
       <div class="float-right">
         <%= paginator(pagination) %>

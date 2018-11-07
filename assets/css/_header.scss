@@ -70,14 +70,21 @@
   padding-right: 20px;
   background-color: white;
 
+  .topic {
+    position: absolute;
+    line-height: 12px;
+  }
+
   .tool-count .count {  
-    height: 29px;	
-    width: 66px;	
-    color: #1A2539;	
-    font-size: 30px;	
-    letter-spacing: -0.24px;	
-    line-height: 30px;	
-    text-align: center;  
+    font-weight: 400;
+    height: 29px;
+    width: 66px;
+    color: #1a2539;
+    font-size: 39px;
+    letter-spacing: -.24px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 6px;
   }
 
   #dropdownMenuButton {
