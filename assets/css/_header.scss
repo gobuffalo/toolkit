@@ -65,7 +65,7 @@
 
 .pre-header {
   height: 60px;
-  padding-top: 15px;
+  padding-top: 25px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: white;
@@ -92,5 +92,13 @@
     padding: 3px 10px;
     border-radius: 3px;
     cursor: pointer;
+    width: auto;
   }
+  
+}
+
+.mask {
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: -50px;
 }
