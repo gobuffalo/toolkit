@@ -57,6 +57,12 @@
     p {
         text-align: center;
     }
+
+    .card-text {
+        line-height: 1.1em;
+        max-height: 3.8em;
+        overflow: hidden;
+    }
 }
 
 

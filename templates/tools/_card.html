@@ -1,16 +1,21 @@
 <div class="col-12 <%= if(!full) { %>col-sm-6 col-md-4 col-xl-3<% } else { %> full-card <% } %>">
   <div class="card">
+
     <div class="">
       <h3 class="text-center">
         <a href="<%= toolPath({tool_id: tool.ID}) %>">
           <%= capitalize(tool.Name) %>
         </a>
       </h3>
-      <h6 class="text-center"><%= tool.NameWithOwner %></h6>
+      <h6 class="text-center pb-2"><%= tool.NameWithOwner %></h6>
+      <p class="text-center mb-0">
+        <img src="<%= assetPath("images/puzzle.svg") %>" alt="">
+      </p>  
     </div>
+
     <div class="card-body">      
-      <p class="card-text">
-        <%= markdown(tool.Description.String) %>
+      <p class="card-text p-2 mt-2">
+        <%= tool.Description.String %>
       </p>
       
       <div class="topics">
