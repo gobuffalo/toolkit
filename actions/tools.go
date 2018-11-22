@@ -1,6 +1,9 @@
 package actions
 
 import (
+	"fmt"
+	"strings"
+
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/pop"
 	"github.com/gobuffalo/toolkit/models"
@@ -41,6 +44,11 @@ func (v ToolsResource) List(c buffalo.Context) error {
 
 	if topic := c.Param("topic"); topic != "" {
 		q = q.Where("? = ANY(tools.topics)", topic)
+	}
+
+	if query := c.Param("query"); query != "" {
+		pattern := fmt.Sprintf("%%%v%%", strings.ToUpper(query))
+		q = q.Where("upper(name) LIKE ? OR upper(name_with_owner) LIKE ? OR upper(description) LIKE ?", pattern, pattern, pattern)
 	}
 
 	q = q.Order("stars desc")
