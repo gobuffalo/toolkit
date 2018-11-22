@@ -25,3 +25,27 @@
   padding-top: 40px;
 }
 
+.not-found {
+  text-align: center;
+  img { 
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    padding: 0 15%;
+    margin-bottom: 20px;
+  }
+
+  h4 {
+    font-weight: 700;
+    color: #5A5D5F;
+    font-size: 20px;
+  }
+
+  p {
+    font-weight: 200;
+    font-size: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+

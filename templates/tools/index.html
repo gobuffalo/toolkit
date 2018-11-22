@@ -3,14 +3,14 @@
     <div class="container">
       <div class="row">
         <div class="tool-count col-6">
-          <span class="count">
-            <%= pagination.TotalEntriesSize %></span>
+          <span class="count"><%= pagination.TotalEntriesSize %></span>
           <%= if (params["topic"]) { %>
-          <span class="topic">
-            <%= capitalize(params["topic"]) %>
-          </span>
+            <span class="topic">
+              <%= capitalize(params["topic"]) %>
+            </span>
           <% } %>
           Tools
+          
         </div>
 
         <div class="dropdown col-6 ">
@@ -45,30 +45,45 @@
 <div class="container">
   <div class="content">
     <div class="page-header">
-      <%= if (params["topic"]) { %>
-      <h1>
-        <%= capitalize(params["topic"]) %> Tools</h1>
-      <% } else { %>
-      <h1>All Tools</h1>
-      <% } %>
+      <%= if (len(tools) == 0) { %>
+        <h1>We couldn't find any tools</h1>
+      <% } else {
+         if (params["topic"]) { %>
+          <h1>
+            <%= capitalize(params["topic"]) %> Tools</h1>
+          <% } else { %>
+          <h1>All Tools</h1>
+        <% }
+      } %>
     </div>
+
+    <%= if (len(tools) == 0) { %>
+    <div class="not-found">
+      <img src="<%= assetPath("images/not-found.svg") %>" alt="">
+      <h4>We couldn’t find any repositories matching</h4>
+      <p>If you are searching for your tool to get listed here, make sure you tag your project on your hosting provider with gobuffalo.</p>
+    </div>
+    <% }  else { %>
   
     <div class="row cards">
-      <%= for (tool) in tools { return partial("tools/card.html", {tool: tool}) } %>
+      <%= for (tool) in tools { return partial("tools/card.html", {tool: tool}) } %>         
     </div>
-  
+
     <hr>
     <div class="row">
       <div class="col-6">
-        Showing
-        <%= pagination.CurrentEntriesSize %> of
-        <%= pagination.TotalEntriesSize %>
-        <%= if (params["topic"]) { %>
-        <span class="topic">
-          <%= capitalize(params["topic"]) %>
-        </span>
-        <% } %>
-        tools
+        
+          Showing
+          <%= pagination.CurrentEntriesSize %> of
+          <%= pagination.TotalEntriesSize %>
+          <%= if (params["topic"]) { %>
+          <span class="topic">
+            <%= capitalize(params["topic"]) %>
+          </span>
+          <% } %>
+          tools
+        
+        
       </div>
       <div class="col-6">
         <div class="float-right">
@@ -76,6 +91,7 @@
         </div>
       </div>
     </div>
+    <% } %>
   
   </div>
 </div>
