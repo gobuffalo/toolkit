@@ -1,3 +1,74 @@
 .about-content {
     background-color: white;
+
+    h1, h2, h3, h4, h5 {
+        font-weight: 700;
+    }
+
+    p {
+        font-weight: 200;
+    }
+
+    .top {
+        background-color: #F3F5F7;
+    }
+
+    .how-to {
+        background-color: white;
+    }
+
+    .categories {
+        background-color: #FFFBF9;
+
+        .category-link {
+            color: #1A2539;	
+            font-family: Lato;	
+            font-size: 18.4px;	
+            font-weight: 600;
+            letter-spacing: -0.54px;
+            line-height: 22px;
+            text-transform: capitalize;
+            display: inline-block;
+            width: 190px;
+            margin-bottom: 10px;
+
+            &:before {
+                font-family: "Font Awesome 5 Free";
+                content: '\f02c';
+                display: inline-block;
+                width: 35px;
+                font-size: 18px;
+                color: #f3aa8b;
+            }
+        }
+    }
+
+    .contributing {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: url("/assets/images/desert.png") center center no-repeat;
+        background-size: cover;
+        color: white;
+
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+    }
+
+    .check-tools {
+        height: 50px;	
+        width: 215px;	
+        border-radius: 6px;	
+        background-color: #DA602D;
+        font-family: Lato;	
+        font-size: 20px;	
+        font-weight: bold;	
+        letter-spacing: -0.59px;	
+        line-height: 24px;	
+        text-align: center;
+        line-height: 36px;
+        text-transform: uppercase;
+    }
 }

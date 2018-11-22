@@ -12,3 +12,4 @@ toolkit
 .vscode/
 .grifter/
 .env
+.DS_Store

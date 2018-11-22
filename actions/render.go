@@ -48,8 +48,9 @@ func knownTagsHTML() (template.HTML, error) {
 	var as []string
 	for _, tag := range discovery.KnownTags {
 		as = append(as, tags.New("a", tags.Options{
-			"href": "/tools?topic=" + tag.Tag,
-			"body": tag.Tag,
+			"href":  "/tools?topic=" + tag.Tag,
+			"body":  tag.Tag,
+			"class": "category-link",
 		}).String())
 	}
 
