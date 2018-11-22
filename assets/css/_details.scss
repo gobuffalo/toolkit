@@ -1,5 +1,6 @@
 
 .details {
+
     .tab-pane {
         background-color: white;
         padding: 15px;
@@ -26,4 +27,93 @@
             margin-right: 3px;
         }
     }
+
+    .top-section {
+        background-color: #FFFBF9;
+        padding-top: 26px;
+
+        h3 {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        .title {
+            font-weight: 700;
+        }
+
+        img {
+            float: left;
+            margin-right: 14px;
+            height: 83px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-weight: 300;
+        }
+
+        .stats {
+            font-size: 13px;
+
+            i {
+                display: inline-block;
+                width: 20px;
+                text-align: center;
+            }
+
+            .title {
+                display: inline-block;
+                width: 90px;
+            }
+
+            .stat {
+                line-height: 1.6em;
+            }
+        }
+    }
+
+    .docs {
+        background-color: #FFFBF9;
+
+        .tab-content {
+            border-top: 1px solid #ddd;
+
+            h1, h2, h3, h4 {
+                font-weight: 700;
+            }
+
+            p {
+                font-weight: 200;
+            }
+        }
+
+        .nav-tabs{
+            border-bottom: 0;
+            li {
+                position: relative;
+                top: 1px;
+
+                a {
+                    font-family: Lato;	
+                    font-size: 14px;	
+                    font-weight: 500;	
+                    letter-spacing: -0.38px;	
+                    line-height: 17px;
+                }
+
+                a:not(.active):hover{
+                    border: 1px solid transparent;
+                }
+            }
+        } 
+
+        
+    }
+
+
+
+        
 }

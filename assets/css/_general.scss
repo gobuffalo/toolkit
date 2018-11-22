@@ -19,6 +19,20 @@ body {
 }
 
 .back-link {
-  font-size: 18px;
+  font-size: 13px;	
+  font-weight: 500;
   color: black;
+
+  i {
+    color: #BDD4EA;
+  }
 }
+
+.t-bold {
+  font-weight: 700;
+}
+
+.t-light {
+  font-weight: 300;
+}
+

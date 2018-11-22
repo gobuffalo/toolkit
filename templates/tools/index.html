@@ -42,37 +42,40 @@
   </div>
       
 <% } %>
-
-<div class="content">
-  <div class="page-header">
-    <%= if (params["topic"]) { %>
-    <h1>
-      <%= capitalize(params["topic"]) %> Tools</h1>
-    <% } else { %>
-      <h1>All Tools</h1>
-    <% } %>
-  </div>
-
-  <div class="row cards">
-    <%= for (tool) in tools { return partial("tools/card.html", {tool: tool}) } %>
-  </div>
-  
-  <hr>
-  <div class="row">
-    <div class="col-6">
-      Showing <%= pagination.CurrentEntriesSize %> of <%= pagination.TotalEntriesSize %> 
+<div class="container">
+  <div class="content">
+    <div class="page-header">
       <%= if (params["topic"]) { %>
+      <h1>
+        <%= capitalize(params["topic"]) %> Tools</h1>
+      <% } else { %>
+      <h1>All Tools</h1>
+      <% } %>
+    </div>
+  
+    <div class="row cards">
+      <%= for (tool) in tools { return partial("tools/card.html", {tool: tool}) } %>
+    </div>
+  
+    <hr>
+    <div class="row">
+      <div class="col-6">
+        Showing
+        <%= pagination.CurrentEntriesSize %> of
+        <%= pagination.TotalEntriesSize %>
+        <%= if (params["topic"]) { %>
         <span class="topic">
           <%= capitalize(params["topic"]) %>
         </span>
-      <% } %> 
-      tools
-    </div>
-    <div class="col-6">
-      <div class="float-right">
-        <%= paginator(pagination) %>
+        <% } %>
+        tools
+      </div>
+      <div class="col-6">
+        <div class="float-right">
+          <%= paginator(pagination) %>
+        </div>
       </div>
     </div>
+  
   </div>
-
 </div>

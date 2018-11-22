@@ -1,79 +1,98 @@
 <%= contentFor("indicator-bar") { %>
-    <div class="pre-header back">
-      <div class="container">
-        <div class="tool-count">
-          <a class="back-link" href="/"><i class="fas fa-arrow-circle-left"></i> Back</a>
-        </div>
-        
-        <div class="dropdown float-right"></div>
+  <div class="pre-header back">
+    <div class="container">
+      <div class="tool-count">
+        <span class="back-link" href="/">
+          <i class="fas fa-arrow-circle-left"></i>
+          <a href="/">Tools</a> / <span class="text-bold">
+            <%= capitalize(tool.Name) %></span>
+        </span>
       </div>
+
+      <div class="dropdown float-right"></div>
     </div>
+  </div>
 <% }%>
 
-<div class="pt-2 mb-3 details">
-  
-  <div class="show-top-section p-3 rounded border mb-3">
-    <div class="row">
-      <div class="col-12">
-        <h3 class="">
-          <%= capitalize(tool.Name) %>
-        </h3>
-        <h6 class="">
-          <a href="<%= tool.URL %>">
-            <%= tool.NameWithOwner %></a>
-        </h6>
-        <p>
-          <%= markdown(tool.Description.String) %>
-        </p>
-      </div>
-    </div>
-    
-    <div class="topics">
-      <%= topicLinks(tool.Topics) %>
-    </div>
-    
-    <div>
-      <div class="">
-        <i class="fas fa-code-branch"></i>
-        <%= tool.Forks %>
-      </div>
-      <div class="">
-        <i class="fas fa-eye"></i>
-        <%= tool.Watchers %>
-      </div>
-      <div class="">
-        <i class="fas fa-star"></i>
-        <%= tool.Stars %>
-      </div>
-    </div>
-    </div>
-  
-  <div class="docs">
-    <ul class="nav nav-tabs" id="repo-deets" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="readme-tab" data-toggle="tab" href="#readme" role="tab" aria-controls="readme"
-          aria-selected="true">README</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="license-tab" data-toggle="tab" href="#license" role="tab" aria-controls="license"
-          aria-selected="false">LICENSE</a>
-      </li>
-    </ul>
-    
-    <div class="tab-content">
-      <div class="tab-pane active" id="readme" role="tabpanel" aria-labelledby="readme-tab">
-        <%= markdown(tool.Readme.String) %>
-      </div>
-      <div class="tab-pane" id="license" role="tabpanel" aria-labelledby="license-tab">
-        <strong>License</strong>:
-        <%= tool.License.Name %> -
-        <em>
-          <%= tool.License.Description.String %></em>
-    
-        <%= markdown(tool.License.Body.String) %>
+<div class="mb-3 details">
+  <div class="show-top-section">
+    <div class="top-section p-3 pt-4 pb-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-xs-12 col-md-6">
+            <img src="<%= assetPath("images/puzzle.svg") %>" alt="">
+            <h3 class="title">
+              <%= capitalize(tool.Name) %>
+            </h3>
+            <p class="description t-light">
+              <%= tool.Description.String %>
+            </p>
+            <div class="topics">
+              <%= topicLinks(tool.Topics) %>
+            </div>
+          </div>
+
+          <div class="col-6 stats">
+            <div class="d-none d-sm-block">
+              <div class="t-light stat">
+                <i class="fab fa-github-alt"></i>
+                <span class="t-bold title">Repository:</span>
+                <a href="<%= tool.URL %>">
+                  <%= tool.NameWithOwner %></a>
+              </div>
+              <div class="t-light stat">
+                <i class="fas fa-code-branch"></i>
+                <span class="t-bold title">Forks:</span>
+                <%= tool.Forks %>
+              </div>
+              <div class="t-light stat">
+                <i class="fas fa-eye"></i>
+                <span class="t-bold title">Watchers:</span>
+                <%= tool.Watchers %>
+              </div>
+              <div class="t-light stat">
+                <i class="fas fa-star"></i>
+                <span class="t-bold title">Stars:</span>
+                <%= tool.Stars %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
 
+  <div class="docs">
+    <div class="container">
+      <ul class="nav nav-tabs" id="repo-deets" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active t-bold" id="readme-tab" data-toggle="tab" href="#readme" role="tab" aria-controls="readme"
+            aria-selected="true">Readme</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link t-bold" id="license-tab" data-toggle="tab" href="#license" role="tab" aria-controls="license"
+            aria-selected="false">License</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="readme" role="tabpanel" aria-labelledby="readme-tab">
+        <div class="container">
+          <%= markdown(tool.Readme.String) %>
+        </div>
+      </div>
+      <div class="tab-pane" id="license" role="tabpanel" aria-labelledby="license-tab">
+        <div class="container">
+          <strong>License</strong>:
+          <%= tool.License.Name %> -
+          <em>
+            <%= tool.License.Description.String %></em>
+
+          <%= markdown(tool.License.Body.String) %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
