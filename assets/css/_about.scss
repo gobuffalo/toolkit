@@ -9,8 +9,26 @@
         font-weight: 200;
     }
 
+    .btn-xlarge {
+        height: 50px;	
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 6px;	
+        line-height: 36px;
+        letter-spacing: -0.59px;	
+        text-decoration: none;
+        font-size: 20px;	
+        font-weight: bold;	
+        text-align: center;
+    }
+
     .top {
         background-color: #F3F5F7;
+
+        .check-tools {
+            background-color: #DA602D;
+            text-transform: uppercase;
+        }
     }
 
     .how-to {
@@ -51,24 +69,10 @@
         background-size: cover;
         color: white;
 
-        a {
+        p a {
             color: white;
             text-decoration: underline;
         }
     }
 
-    .check-tools {
-        height: 50px;	
-        width: 215px;	
-        border-radius: 6px;	
-        background-color: #DA602D;
-        font-family: Lato;	
-        font-size: 20px;	
-        font-weight: bold;	
-        letter-spacing: -0.59px;	
-        line-height: 24px;	
-        text-align: center;
-        line-height: 36px;
-        text-transform: uppercase;
-    }
 }

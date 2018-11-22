@@ -4,7 +4,7 @@
 
 
 <div class="about-content">
-    <section class="top p-4">
+    <section class="top p-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -27,7 +27,7 @@
         </div>
     </section>
 
-    <section class="how-to p-4">
+    <section class="how-to p-5">
         <div class="container">
             <h3 id="howdoigetmypackagetooletclisted">How do I get my package, tool, etc... listed?</h1>
             <p>
@@ -37,7 +37,7 @@
         </div>
     </section> 
     
-    <section class="categories p-4">
+    <section class="categories p-5">
         <div class="container">
             <h3 id="categorytags">Category Tags</h2>
             
@@ -45,8 +45,9 @@
                 There are a few more tags that you can use that will help the Buffalo Toolkit better categorize yourproject.
                 You can add as many of this tags to your project as is suitable. Please try to refrain from using more than just a few tags.
             </p>
-
-            <%= knownTagsHTML() %>
+            <p>
+                <%= knownTagsHTML() %>
+            </p>
             
             <p>
                 Any other tags will still be indexed and searchable, but the tool may not show in the "known" categories section.
@@ -55,7 +56,7 @@
     </section>
     
 
-    <section class="discovery-tools p-4">
+    <section class="discovery-tools p-5">
         <div class="container">
             <h3 id="currentlyimplementeddiscoverytools">Currently Implemented Discovery Tools</h1>
             
@@ -69,8 +70,17 @@
 
     <section class="contributing p-5">
         <div class="container">
-            <h3 id="contributing">Contributing</h1>
-            <p>Source for this project can be found at <a href="https://github.com/gobuffalo/toolkit">https://github.com/gobuffalo/toolkit</a>.</p>
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <h3 id="contributing">Contributing</h1>
+                    <p>Source for this project can be found at <a href="https://github.com/gobuffalo/toolkit">the toolkit repository in github</a>.</p>
+                </div>    
+                <div class="col-4 d-none d-md-block">
+                    <a href="https://github.com/gobuffalo/toolkit" class="btn btn-outline-light btn-xlarge float-right mt-4">View in Github</a>
+                </div>
+            </div>
+            
+            
         </div>
     </section>
 </div>
