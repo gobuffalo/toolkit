@@ -1,5 +1,4 @@
 .header-top {
-	height: 70px;
   background-color: #0A193F;
   color: white;
 
@@ -35,10 +34,10 @@
 
   .search-input {
     height: 36px;
-    width: 336px;	
     border: 1px solid #D3D3D3;	
     border-radius: 6px;	
     background-color: #FFFFFF;
+    min-width: 336px;
   }
 
   .search-button {
