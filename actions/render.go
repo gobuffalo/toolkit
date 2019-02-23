@@ -6,13 +6,13 @@ import (
 	"strings"
 
 	"github.com/gobuffalo/buffalo/render"
-	"github.com/gobuffalo/packr"
+	"github.com/gobuffalo/packr/v2"
 	"github.com/gobuffalo/tags"
 	"github.com/gobuffalo/toolkit/models/discovery"
 )
 
 var r *render.Engine
-var assetsBox = packr.NewBox("../public")
+var assetsBox = packr.New("../public", "../public")
 
 var Helpers = render.Helpers{
 	"knownTagsMD":   knownTagsMD,
@@ -26,7 +26,7 @@ func init() {
 		HTMLLayout: "application.html",
 
 		// Box containing all of the templates:
-		TemplatesBox: packr.NewBox("../templates"),
+		TemplatesBox: packr.New("../templates", "../templates"),
 		AssetsBox:    assetsBox,
 
 		// Add template helpers here:
