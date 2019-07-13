@@ -1,8 +1,8 @@
 package models
 
 import (
+	"github.com/gobuffalo/nulls"
 	"github.com/gobuffalo/pop"
-	"github.com/gobuffalo/pop/nulls"
 	"github.com/gobuffalo/pop/slices"
 	"github.com/gobuffalo/toolkit/models/discovery"
 	"github.com/pkg/errors"

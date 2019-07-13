@@ -1,7 +1,7 @@
 package actions
 
 import (
-	"github.com/gobuffalo/pop/nulls"
+	"github.com/gobuffalo/nulls"
 	"github.com/gobuffalo/toolkit/models"
 	"github.com/markbates/going/randx"
 )
