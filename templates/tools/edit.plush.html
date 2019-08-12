@@ -3,6 +3,6 @@
 </div>
 
 <%= form_for(tool, {action: toolPath({ tool_id: tool.ID }), method: "PUT"}) { %>
-  <%= partial("tools/form.html") %>
+  <%= partial("tools/form.plush.html") %>
   <a href="<%= toolPath({ tool_id: tool.ID }) %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
 <% } %>

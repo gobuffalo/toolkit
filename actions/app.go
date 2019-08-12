@@ -63,7 +63,7 @@ func App() *buffalo.App {
 		app.GET("/", tools.List)
 
 		app.GET("/about", func(c buffalo.Context) error {
-			return c.Render(200, r.HTML("about.html"))
+			return c.Render(200, r.HTML("about.plush.html"))
 		})
 
 		app.Resource("/tools", tools)
